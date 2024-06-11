@@ -34,8 +34,10 @@
                 let table = '<table>';
                 table += '<tr><th>Name</th><th>Username</th><th>Address</th><th>Phone</th><th>Company-name</th></tr>';
                 data.forEach(item => {
-                table += `<tr><td>${item.name}</td><td>${item.username}</td><td>${item.address.street}, ${item.address.city}</td><td>${item.phone}</td><td>${item.company.name}</td></tr>`;
-            });
+                    const address = `Street: ${item.address.street}<br>Suite: ${item.address.suite}<br>Zipcode: ${item.address.zipcode}`;
+                    const company = `${item.company.name}<br>${item.company.catchPhrase}`
+                    table += `<tr><td>${item.name}</td><td>${item.username}</td><td>${address}</td><td>${item.phone}</td><td>${company}</td></tr>`;
+                });
                 table += '</table>';
                 const tableContainer = document.getElementById('table-container');
                 tableContainer.innerHTML = table;
